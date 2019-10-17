@@ -8,6 +8,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/addons/p5.dom.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/addons/p5.sound.min.js"></script>
     <style>
+
     #txtflr {
       position: fixed;
       top: 0;
@@ -18,14 +19,17 @@
 
     #copeyBlue {
       position: absolute;
-      top: 20px;
-      right: 0;
+      padding: 7%;
+
+    }
+    .cen{
+      text-align: center;
     }
 
-    h3 {
+    h1 {
       color: #497482;
       font-family: Arial, Helvetica, sans-serif;
-      font-size: 18pt;
+      font-size: 34pt;
       font-style: italic;
       opacity: 0;
     }
@@ -36,27 +40,36 @@
       font-size: 10pt;
       opacity: 0;
     }
+
     button{
-      /* margin-left: 20%; */
-      /* float: right; */
-      border: 40px solid;
-      background-color: transparent;
-      font-family: arial;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 24pt;
+      font-style: italic;
+      font-weight: bold;
       color: lightblue;
-      padding: 10px;
+
     }
+
     #copeyButton{
-      /* background-image: url('assets/images/img_2157.jpg'); */
-      border-image: url('assets/images/img_2157.jpg')30% round;
+    width: 250px;
+    height: 188px;
+    background-image:url('assets/images/img_2157_button.jpg');
+    background-repeat:no-repeat;
 
     }
+
     #helsiButton{
-      /* background-image: url('assets/images/img_helsi.jpg'); */
-      border-image: url('assets/images/img_helsi.jpg')30% round;
+      width: 250px;
+      height: 188px;
+      background-image:url('assets/images/img_helsi_button.jpg');
+      background-repeat:no-repeat;
     }
-    #amstyButton{
-      border-image: url('assets/images/img_2009.jpg') 30% round;
 
+    #amstyButton{
+      width: 250px;
+      height: 188px;
+      background-image:url('assets/images/img_2009_button.jpg');
+      background-repeat:no-repeat;
     }
 
     </style>
@@ -68,6 +81,7 @@
     var amsty;
     var helsi;
     var ae, title;
+    var minmov = false;
 
     function preload() {
       copey = loadSound('assets/minmovs/copey.mp3');
@@ -144,7 +158,7 @@
     function blackcat(id){
     let ll = document.getElementById(id);
     ll.style.opacity = 1.0;
-    ll.innerHTML = ll.innerText.split(" ").map(l => `<a class="letterMap" style="text-decoration:none; opacity: 0;" href="#" onclick="trigSound(${colors[l[0]]}); if(${l.length>1}){trigSound(${colors[l[1]]});} if(${l.length>2}){trigSound(${colors[l[2]]});} ">${l}</a>`).join(" ");
+    ll.innerHTML = ll.innerText.split(" ").map(l => `<a class="letterMap" style="text-decoration:none; opacity: 0;" onclick="trigSound(${colors[l[0]]}); if(${l.length>1}){trigSound(${colors[l[1]]});} if(${l.length>2}){trigSound(${colors[l[2]]});} ">${l}</a>`).join(" ");
     ae = document.getElementsByClassName("letterMap");
     title = document.getElementById('anarchivalSoundz');
 
@@ -157,10 +171,12 @@
     </script>
     <script src="js/mouse-lure.js"></script> <!-- js file for sound playback mouse control -->
     <div id="copeyBlue" onmousemove="changeCo(rOut, gOut, bOut);">
-      <h3 id="anarchivalSoundz">anarchival soundzZ</h3>
-        <button id="copeyButton" onclick="stopBuffers(); loopBuf(copey); document.getElementById('txtflr').src='assets/images/img_2157.jpg'">Copenhagen</button>
-        <button id="amstyButton" onclick="stopBuffers(); loopBuf(amsty); document.getElementById('txtflr').src='assets/images/img_2009.jpg'">Amsterdam</button>
-        <button id="helsiButton" onclick="stopBuffers(); loopBuf(helsi); document.getElementById('txtflr').src='assets/images/img_helsi.jpg'">Helsinki</button>
+      <h1 id="anarchivalSoundz">anarchival soundzZ</h1>
+      <div class="cen">
+        <button id="copeyButton" onclick="minmov=true; stopBuffers(); loopBuf(copey); document.getElementById('txtflr').src='assets/images/img_2157.jpg'">Copenhagen</button>
+        <button id="amstyButton" onclick="minmov=true; stopBuffers(); loopBuf(amsty); document.getElementById('txtflr').src='assets/images/img_2009.jpg'">Amsterdam</button>
+        <button id="helsiButton" onclick="minmov=true; stopBuffers(); loopBuf(helsi); document.getElementById('txtflr').src='assets/images/img_helsi.jpg'">Helsinki</button>
+      </div>
         <br><br>
         <p id="zp33dz">1677: Ecology of Speeds.</p>
         <p id="deleuze">

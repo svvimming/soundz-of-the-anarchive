@@ -33,13 +33,15 @@ function componentToHex(c) {
 }
 
 function changeCo(r, g, b){
-  var hexCo = "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
-  title.style.color = hexCo;
-  title.style.opacity = deltaT;
-  for (var i = 0; i < ae.length; i++) {
-        ae[i].style.color= hexCo;
-        ae[i].style.opacity = deltaT;
-    }
+  if (minmov) {
+    var hexCo = "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
+    title.style.color = hexCo;
+    title.style.opacity = deltaT;
+    for (var i = 0; i < ae.length; i++) {
+          ae[i].style.color= hexCo;
+          ae[i].style.opacity = deltaT;
+      }
+  }
 }
 // hehheheeeehehhehehe
 function draw(){
