@@ -1,15 +1,10 @@
-let canvas = 800;
-let rOut, gOut, bOut, deltaT;
-
-function setup(){
-  frameRate(60);
-  createCanvas(canvas*1.5, canvas, WEBGL);
-}
 ///allloo
 // criii
 //suppp
 // Y
 // follow meeee.....
+let rOut, gOut, bOut, deltaT;
+
 function stopBuffers(){
   if(copey.isPlaying()){
     copey.stop();
@@ -69,8 +64,6 @@ function draw(){
           ae[i].style.opacity = 0;
       }
   }
-
-
 }
 
 
